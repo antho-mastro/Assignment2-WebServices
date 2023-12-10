@@ -120,6 +120,7 @@ async function getFilmsById(){
     console.log(film_id.data);
 
 }
+
 /**
  * 
  * @param {*} categories{category_id}films
@@ -149,15 +150,53 @@ async function getFilmsByCategories(){
         <td>${category.rating}</td>
         <td>${category.special_features.join(', ')}</td>
         <td>${category.last_update}</td>
-        <td>${category.category_name}</td>
+        <td>${category.actors}</td>
         </tr>`;
     });
 
     var tableCategories = document.getElementById('tableCategories');
     tableCategories.innerHTML = tableContent;
     var btnCategoriesCounter = document.getElementById('btnCategoriesCounter');
-    btnCategoriesCounter.innerHTML = categories.data.length;
+    btnCategoriesCounter.innerHTML = categories.length;
   }
+
+
+  
+  /**
+ * 
+ * @param {*} actors{actor_id}films
+ * Fetching actors that belong to specific film
+ */
+ async function getActorsIdByFilms(){
+    console.log("Fetching actors by films...")
+    const actors= await fetchData('http://localhost/films-api/actors/{actor_id}/films');
+   
+    var tableContent= "";
+    actors.forEach(actor => {
+        console.log(actor);
+        tableContent += `<tr> 
+        <td>${actor.film_id}</td>
+        <td>${actor.title}</td>
+        <td>${actor.description}</td>
+        <td>${actor.release_year}</td>
+        <td>${actor.language_id}</td>
+        <td>${actor.orginal_language_id}</td>
+        <td>${actor.rental_duration}</td>
+        <td>${actor.rental_rate}</td>
+        <td>${actor.length}</td>
+        <td>${actor.replacement_cost}</td>
+        <td>${actor.rating}</td>
+        <td>${actor.special_features.join(', ')}</td>
+        <td>${actor.last_update}</td>
+        <td>${actor.category_name}</td>
+        </tr>`;
+    });
+
+    var tableActorsByFilm = document.getElementById('tableActorsByFilm');
+    tableActorsByFilm.innerHTML = rows;
+    var btnActorsByFilmCounter = document.getElementById('btnActorsByFilmCounter');
+    btnActorsByFilmCounter.innerHTML = actors.length;
+ }
 
 
 

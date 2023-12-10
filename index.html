@@ -15,36 +15,36 @@
     <div class="container">
         <h1><center>	&#8594;Shows portal of Dreams&#9835;	</center></h1>
         <h3><center>&#9830;Anthony's Movie Theater&#9830;</center></h3>
-        <h3>Please Look at our options and filter by which you desire&#9786;</h3>
+        <h3><center>Please Look at our options and filter by which you desire&#9786;</center></h3>
         <hr>
         <!--Buttons To call each function-->
          <!--Buttons To call function Fetch Shows-->
-    <button type="button" class="btn btn-primary position-relative"
+    <button type="button" class="btn btn-dark position-relative"
       onclick="fetchShows(); hideTablesExcept('tbiShows');">
       Shows
       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="spShowsCounter">
       </span>
     </button>
      <!--Button Create actor-->
-    <button type="button" class="btn btn-primary position-relative"
-      onclick="createActor(actorData); hideTablesExcept('tableSctors');">
+    <button type="button" class="btn btn-danger position-relative"
+      onclick="createActor(actorData); hideTablesExcept('tableActors');">
       Create Actor
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
         id="btnActorsCounter">
         0
         <span class="visually-hidden">unread messages</span>
       </span>
     </button>
     <!--Button to fetch all actors -->
-    <button type="button" class="btn btn-primary position-relative"
+    <button type="button" class="btn btn-danger position-relative"
     onclick="getActors(); hideTablesExcept('tableActors');">
     Actors
-    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
       id="btnActorsCounter">
     </span>
   </button>
    <!--Buttons To call function get Films-->
-   <button type="button" class="btn btn-primary position-relative"
+   <button type="button" class="btn btn-success position-relative"
    onclick="getFilms(); hideTablesExcept('tableFilms');">
    Films
    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -52,12 +52,20 @@
    </span>
  </button>
 <!--Buttons To call function get Films by Categories-->
- <button type="button" class="btn btn-primary position-relative"
+ <button type="button" class="btn btn-success position-relative"
       onclick="getFilmsByCategories(); hideTablesExcept('tableCategories');">
       Films Categories
       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="btnFilmsCounter">
       </span>
     </button>
+<!--Buttons To call function get actors by films s-->
+    <button type="button" class="btn btn-success position-relative"
+    onclick="getActorsIdByFilms(); hideTablesExcept('tableActorsByFilm');">
+    Actors By Films
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+      id="btnActorsByFilmCounter">
+    </span>
+  </button>
 
                      <!--Shows Table-->
         <table id="tbiShows" class="table table-striped">
@@ -131,12 +139,39 @@
                 <th>Rating</th>
                 <th>Special Features</th>
                 <th>Last Update</th>
-                <th>Category Name</th>
+                <th>Actors</th>
             </tr></thead>
             <tbody id="tableCategories">
 
             </tbody>
         </table>
+
+         <!--Table containing the parsed information on actors by film-->
+    <table id="tableActorsByFilm" class="table table-stripped">
+        <thead>
+          <tr>
+            <th>Film ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Release Year</th>
+            <th>Language ID</th>
+            <th>Original Language ID</th>
+            <th>Rental Duration</th>
+            <th>Rental Rate</th>
+            <th>Length</th>
+            <th>Replacement Cost</th>
+            <th>Rating</th>
+            <th>Special Features</th>
+            <th>Last Update</th>
+            <th>Category Name</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tbody id="tableActorsByFilm">
+  
+        </tbody>
+        </tbody>
+      </table>
 
       
     </div>
