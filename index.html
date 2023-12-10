@@ -12,18 +12,20 @@
   <body>
 
     <div class="container">
-        <h1><center>Shows portal of Dreams</center></h1>
-        <h3><center>Anthony's Movie Theater</center></h3>
+        <h1><center>	&#8594;Shows portal of Dreams&#9835;	</center></h1>
+        <h3><center>&#9830;Anthony's Movie Theater&#9830;</center></h3>
         <hr>
+        <!--Buttons To call each function-->
+         <!--Buttons To call function Fetch Shows-->
     <button type="button" class="btn btn-primary position-relative"
       onclick="fetchShows(); hideTablesExcept('tbiShows');">
       Shows
       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="spShowsCounter">
       </span>
     </button>
-
+     <!--Button Create actor-->
     <button type="button" class="btn btn-primary position-relative"
-      onclick="createActor(actorData); hideTablesExcept('tabblActors');">
+      onclick="createActor(actorData); hideTablesExcept('tableSctors');">
       Create Actor
       <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
         id="btnActorsCounter">
@@ -39,7 +41,15 @@
       id="btnActorsCounter">
     </span>
   </button>
-
+   <!--Buttons To call each function-->
+   <button type="button" class="btn btn-primary position-relative"
+   onclick="getFilms(); hideTablesExcept('tableFilms');">
+   Films
+   <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+     id="btnFilmsCounter">
+   </span>
+ </button>
+                     <!--Shows Table-->
         <table id="tbiShows" class="table table-striped">
             <thead><tr>
                 <th>ID</th>
@@ -56,7 +66,7 @@
 
             </tbody>
         </table>
-
+                        <!--Actors Table-->
         <table id="tableActors" class="table table-striped">
             <thead>
                 <tr>
@@ -73,6 +83,28 @@
             </tbody>
         </tbody>
         </table>
+
+        <table id="tableFilms" class="table table-striped">
+            <thead><tr>
+                <th>Film ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Release Year</th>
+                <th>Language ID</th>
+                <th>Original Language ID</th>
+                <th>Rental Duration</th>
+                <th>Rental Rate</th>
+                <th>Length</th>
+                <th>Replacement Cost</th>
+                <th>Rating</th>
+                <th>Special Features</th>
+                <th>Last Update</th>
+            </tr></thead>
+            <tbody id="tableFilms">
+
+            </tbody>
+        </table>
+
       
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

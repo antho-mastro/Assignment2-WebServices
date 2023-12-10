@@ -45,7 +45,7 @@ async function fetchShows(){
 }
 
 /**
- * Parse the actors data from database and display
+ * The actors data from database and display
  * @param {*} actors 
  * Fetch the actors from the DB
  */
@@ -64,12 +64,48 @@ async function getActors(){
     });
  
  var tableActors = document.getElementById('tableActors');
- tableActors.innerHTML = rows;
+ tableActors.innerHTML = tableContent;
  var btnActorsCounter = document.getElementById('btnActorsCounter');
  btnActorsCounter.innerHTML = actors.length;
 
 }
 
+/**
+ * 
+ * @param {*} films 
+ * Fetch the films from the DB
+ */
+
+async function getFilms(){
+    console.log("Fetching films...")
+    const films = await fetchData('http://localhost/films-api/films');
+    /*Field for each film to display the table */
+    var tableContent= "";
+    films.forEach(film => {
+        console.log(film);
+        tableContent += `<tr> 
+        <td>${film.film_id}</td>
+        <td>${film.title}</td>
+        <td>${film.description}</td>
+        <td>${film.release_year}</td>
+        <td>${film.language_id}</td>
+        <td>${film.orginal_language_id}</td>
+        <td>${film.rental_duration}</td>
+        <td>${film.rental_rate}</td>
+        <td>${film.length}</td>
+        <td>${film.replacement_cost}</td>
+        <td>${film.rating}</td>
+        <td>${film.special_features}</td>
+        <td>${film.last_update}</td>
+        </tr>`;
+    });
+
+    var tableFilms = document.getElementById('tableFilms');
+    tableFilms.innerHTML = tableContent;
+    var btnFilmsCounter = document.getElementById('btnFilmsCounter');
+    btnFilmsCounter.innerHTML = films.length;
+
+}
 
 
 
