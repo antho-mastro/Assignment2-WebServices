@@ -8,12 +8,14 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="js/shows.js" type="text/javascript"></script>
         <script src="js/createActor.js" type="text/javascript"></script>
+        <script src="js/filtersSearch.js" type="text/javascript"></script>
   </head>
   <body>
 
     <div class="container">
         <h1><center>	&#8594;Shows portal of Dreams&#9835;	</center></h1>
         <h3><center>&#9830;Anthony's Movie Theater&#9830;</center></h3>
+        <h3>Please Look at our options and filter by which you desire&#9786;</h3>
         <hr>
         <!--Buttons To call each function-->
          <!--Buttons To call function Fetch Shows-->
@@ -41,7 +43,7 @@
       id="btnActorsCounter">
     </span>
   </button>
-   <!--Buttons To call each function-->
+   <!--Buttons To call function get Films-->
    <button type="button" class="btn btn-primary position-relative"
    onclick="getFilms(); hideTablesExcept('tableFilms');">
    Films
@@ -49,6 +51,14 @@
      id="btnFilmsCounter">
    </span>
  </button>
+<!--Buttons To call function get Films by Categories-->
+ <button type="button" class="btn btn-primary position-relative"
+      onclick="getFilmsByCategories(); hideTablesExcept('tableCategories');">
+      Films Categories
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="btnFilmsCounter">
+      </span>
+    </button>
+
                      <!--Shows Table-->
         <table id="tbiShows" class="table table-striped">
             <thead><tr>
@@ -101,6 +111,29 @@
                 <th>Last Update</th>
             </tr></thead>
             <tbody id="tableFilms">
+
+            </tbody>
+        </table>
+
+        <table id="tableCategories" class="table table-striped">
+            <thead><tr>
+                <th>Film ID</th>
+                <th>Category ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Release Year</th>
+                <th>Language ID</th>
+                <th>Original Language ID</th>
+                <th>Rental Duration</th>
+                <th>Rental Rate</th>
+                <th>Length</th>
+                <th>Replacement Cost</th>
+                <th>Rating</th>
+                <th>Special Features</th>
+                <th>Last Update</th>
+                <th>Category Name</th>
+            </tr></thead>
+            <tbody id="tableCategories">
 
             </tbody>
         </table>

@@ -107,6 +107,57 @@ async function getFilms(){
 
 }
 
+/**
+ * 
+ * @param {*} filmsByID
+ * Fetch the films from the DB and filter by Films ID
+ */
+
+async function getFilmsById(){
+    console.log("Fetching films by ID...")
+    const film_id = await fetchData('http://localhost/films-api/films/{film_id}');
+
+    console.log(film_id.data);
+
+}
+/**
+ * 
+ * @param {*} categories{category_id}films
+ * Fetching catagories that belong to specific film
+ */
+
+
+async function getFilmsByCategories(){
+    console.log("Fetching films by Catagories...")
+    const categories = await fetchData('http://localhost/films-api/categories/{category_id}/films');
+    /*Field for each film to display the table */
+    var tableContent= "";
+    categories.forEach(category => {
+        console.log(category);
+        tableContent += `<tr> 
+        <td>${category.film_id}</td>
+        <td>${category.category_id}</td>
+        <td>${category.title}</td>
+        <td>${category.description}</td>
+        <td>${category.release_year}</td>
+        <td>${category.language_id}</td>
+        <td>${category.orginal_language_id}</td>
+        <td>${category.rental_duration}</td>
+        <td>${category.rental_rate}</td>
+        <td>${category.length}</td>
+        <td>${category.replacement_cost}</td>
+        <td>${category.rating}</td>
+        <td>${category.special_features.join(', ')}</td>
+        <td>${category.last_update}</td>
+        <td>${category.category_name}</td>
+        </tr>`;
+    });
+
+    var tableCategories = document.getElementById('tableCategories');
+    tableCategories.innerHTML = tableContent;
+    var btnCategoriesCounter = document.getElementById('btnCategoriesCounter');
+    btnCategoriesCounter.innerHTML = categories.data.length;
+  }
 
 
 
