@@ -8,21 +8,52 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="js/shows.js" type="text/javascript"></script>
         <script src="js/createActor.js" type="text/javascript"></script>
-        <script src="js/filtersSearch.js" type="text/javascript"></script>
+        <script src="js/searchFilters.js" type="text/javascript"></script>
   </head>
   <body>
 
-    <div class="container">
+    <div class="container-filters">
+        <div class="text-center">
         <h1><center>	&#8594;Shows portal of Dreams&#9835;	</center></h1>
         <h3><center>&#9830;Anthony's Movie Theater&#9830;</center></h3>
         <h3><center>Please Look at our options and filter by which you desire&#9786;</center></h3>
         <hr>
+        <!--Filters are placed before placing the button-->
+        <input type="text" id="btnShowsCounter" onkeyup="filterSearchByDescription('tbiShows', 'btnShowsCounter')"
+      placeholder="Filter Shows by Description" style="width: 600px; height: 30px;">
+
+      <input type="text" id="Films" onkeyup="filterByFilmsID('tableFilms', 'btnFilmsCounter')"
+      placeholder="Filter films by ID" style="width: 600px; height: 30px;">
+    
+      <br>
+      <br>
+
+      <input type="text" id="Actors" onkeyup="filterActorsByName('tableActors', 'btnActorsCounter')"
+      placeholder="Filter actors by name" style="width: 600px; height: 30px;">
+
+      <input type="text" id="Categories" onkeyup="filterByLengthAndRating('tableCategories', 'btnFilmsCounter')"
+      placeholder="Filter categories" style="width: 600px; height: 30px;">
+
+      <br> 
+      <br>
+
+      <input type="text" id="Films" onkeyup="filterByLanguageAndCategory('tableFilms', 'btnFilmsCounter')"
+      placeholder="Filter films by name, title and Description" style="width: 600px; height: 30px;">
+
+      <input type="text" id="Films" onkeyup="filterByCategoryAndRating('tableFilms', 'btnFilmsCounter')"
+      placeholder="Filter films by categories and rating" style="width: 600px; height: 30px;">
+     
+
+    </div>
+
+    <div class="container-buttons">
+        <div class="text-center">
         <!--Buttons To call each function-->
          <!--Buttons To call function Fetch Shows-->
     <button type="button" class="btn btn-dark position-relative"
       onclick="fetchShows(); hideTablesExcept('tbiShows');">
       Shows
-      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="spShowsCounter">
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="btnShowsCounter">
       </span>
     </button>
      <!--Button Create actor-->
